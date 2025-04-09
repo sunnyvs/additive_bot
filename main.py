@@ -10,7 +10,7 @@ FILE_PATH = 'langeta.rar'  # замени на путь к твоему файл
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Привет, я Аддитивный GPT!👾\nНапиши мне запрос, и по нему я спроектирую лангету.")
 
-async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def handle_all_input(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 
@@ -32,5 +32,5 @@ if __name__ == '__main__':
 
     app = ApplicationBuilder().token(TOKEN).read_timeout(7).write_timeout(7).build()
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(MessageHandler(filters.TEXT, handle_message))
+    app.add_handler(MessageHandler(filters.TEXT, handle_all_input))
     app.run_polling()
