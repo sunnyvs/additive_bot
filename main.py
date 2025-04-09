@@ -1,5 +1,7 @@
+from email.message import Message
+
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, ContextTypes
+from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, ContextTypes, MessageHandler, filters
 import asyncio
 
 FILE_PATH = 'langeta.rar'  # замени на путь к твоему файлу
@@ -34,5 +36,5 @@ if __name__ == '__main__':
 
     app = ApplicationBuilder().token(TOKEN).read_timeout(7).write_timeout(7).build()
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(CallbackQueryHandler(button_callback))
+    app.add_handler(MessageHandler(filters.TEXT, handle_message))
     app.run_polling()
