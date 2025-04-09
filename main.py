@@ -8,7 +8,7 @@ FILE_PATH = 'langeta.rar'  # замени на путь к твоему файл
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Привет, я Аддитивный GPT! Напиши мне запрос, и по нему я спроектирую лангету.")
+    await update.message.reply_text("Привет, я Аддитивный GPT!👾\nНапиши мне запрос, и по нему я спроектирую лангету.")
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
@@ -28,7 +28,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 if __name__ == '__main__':
-    TOKEN = "7709229308:AAEMYz2B2VYPlQ6yCFV-AkaB5aQ1QU2oosI"  # можно заменить на строку токена прямо
+    TOKEN = "7709229308:AAEMYz2B2VYPlQ6yCFV-AkaB5aQ1QU2oosI"
 
     app = ApplicationBuilder().token(TOKEN).read_timeout(7).write_timeout(7).build()
     app.add_handler(CommandHandler("start", start))
