@@ -8,8 +8,7 @@ FILE_PATH = 'langeta.rar'  # замени на путь к твоему файл
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text("Привет! Напиши мне запрос, и по нему я спроектирую лангету.", reply_markup=reply_markup)
+    await update.message.reply_text("Привет, я Аддитивный GPT! Напиши мне запрос, и по нему я спроектирую лангету.")
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
