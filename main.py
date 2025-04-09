@@ -32,5 +32,5 @@ if __name__ == '__main__':
 
     app = ApplicationBuilder().token(TOKEN).read_timeout(7).write_timeout(7).build()
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(MessageHandler(filters.TEXT, handle_all_input))
+    app.add_handler(MessageHandler(filters.TEXT | filters.Document.ALL, handle_all_input))
     app.run_polling()
