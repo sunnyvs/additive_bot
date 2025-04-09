@@ -8,7 +8,7 @@ FILE_PATH = 'langeta.rar'  # замени на путь к твоему файл
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Привет, я Аддитивный GPT!👾\nОтправьте мне техническое задание и я сделаю цифровую модель.")
+    await update.message.reply_text("Привет, я Аддитивный GPT!👾\nОтправьте мне техническое задание, и я сделаю цифровую модель.")
 
 async def handle_all_input(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
