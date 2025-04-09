@@ -8,9 +8,6 @@ FILE_PATH = 'langeta.rar'  # замени на путь к твоему файл
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    keyboard = [
-        [InlineKeyboardButton("Получить файл", callback_data='send_file')]
-    ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text("Привет! Напиши мне запрос, и по нему я спроектирую лангету.", reply_markup=reply_markup)
 
@@ -20,7 +17,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     wait_msg = await update.message.reply_text("🔍 Подготовка файла...")
 
-    dots = ["⏳", "⌛", "⏳", "⌛"",⏳", "⌛"]
+    dots = ["⏳", "⌛", "⏳", "⌛","⏳", "⌛"]
     for dot in dots:
         await asyncio.sleep(1)  # Задержка 1 секунда
         await wait_msg.edit_text(f"Файл загружается {dot}")
