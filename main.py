@@ -5,14 +5,14 @@ import asyncio
 FILE_PATH = 'langeta.rar'  # замени на путь к твоему файлу
 
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    keyboard = [
-        [InlineKeyboardButton("Получить файл", callback_data='send_file')]
-    ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text("Нажмите кнопку, чтобы получить файл:", reply_markup=reply_markup)
+# async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+#     keyboard = [
+#         [InlineKeyboardButton("Получить файл", callback_data='send_file')]
+#     ]
+#     reply_markup = InlineKeyboardMarkup(keyboard)
+#     await update.message.reply_text("Нажмите кнопку, чтобы получить файл:", reply_markup=reply_markup)
 
-async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
 
