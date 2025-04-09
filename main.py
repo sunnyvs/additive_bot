@@ -5,30 +5,28 @@ import asyncio
 FILE_PATH = 'langeta.rar'  # замени на путь к твоему файлу
 
 
-# async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-#     keyboard = [
-#         [InlineKeyboardButton("Получить файл", callback_data='send_file')]
-#     ]
-#     reply_markup = InlineKeyboardMarkup(keyboard)
-#     await update.message.reply_text("Нажмите кнопку, чтобы получить файл:", reply_markup=reply_markup)
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    keyboard = [
+        [InlineKeyboardButton("Получить файл", callback_data='send_file')]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    await update.message.reply_text("Привет! Напиши мне запрос, и по нему я спроектирую лангету.", reply_markup=reply_markup)
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    query = update.callback_query
-    await query.answer()
 
-    if query.data == 'send_file':
 
-        wait_msg = await query.message.reply_text("🔍 Подготовка файла...")
 
-        dots = ["⏳", "⌛", "⏳", "⌛"",⏳", "⌛"]
-        for dot in dots:
-            await asyncio.sleep(1)  # Задержка 1 секунда
-            await wait_msg.edit_text(f"Файл загружается {dot}")
+    wait_msg = await update.message.reply_text("🔍 Подготовка файла...")
 
-        with open(FILE_PATH, 'rb') as f:
-            await query.message.reply_document(document=f, filename=FILE_PATH.split("/")[-1])
+    dots = ["⏳", "⌛", "⏳", "⌛"",⏳", "⌛"]
+    for dot in dots:
+        await asyncio.sleep(1)  # Задержка 1 секунда
+        await wait_msg.edit_text(f"Файл загружается {dot}")
 
-        await wait_msg.delete()
+    with open(FILE_PATH, 'rb') as f:
+        await update.message.reply_document(document=f, filename=FILE_PATH.split("/")[-1])
+
+    await wait_msg.delete()
 
 
 if __name__ == '__main__':
